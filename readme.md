@@ -5,6 +5,9 @@ and decodes their traffic, and serves the resulting network graph over a
 read API — all running in a real Linux network namespace via Docker
 Compose. Not realistic, but a good learning exercise.
 
+(This project was built with the disciplined & limited use of AI tool, primarily as a challenge.)
+
+
 ## How it works
 
 Two independent Go modules, tied together for local dev via `go.work`:
