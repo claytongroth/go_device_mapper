@@ -1,0 +1,22 @@
+services:
+  devicesim:
+    build: ./devicesim
+    ports:
+      - "8080:8080"
+    # Runs inside a real Linux container, so the swarm's 127.0.x.y binds
+    # work with zero loopback aliasing needed (unlike running devicesim
+    # directly on macOS) — this is the free /8-to-lo behavior the spec
+    # describes for Linux.
+    #
+    # The port mapping above is really apiserver's — apiserver borrows this
+    # service's network namespace (see network_mode below), and Compose
+    # requires the published port to live on the namespace owner.
+
+  apiserver:
+    build: ./apiserver
+    network_mode: "service:devicesim"
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    depends_on:
+      - devicesim
