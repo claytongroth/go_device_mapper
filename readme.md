@@ -69,7 +69,4 @@ scripts/dev.sh
 ```
 
 ## Status
-
-Actively under bottom-up construction — see [`PLAN.md`](PLAN.md) for what's
-built, what's deliberately deferred (no persistence yet, no automated tests
-yet, single-mutex graph store, no worker pool), and what's next.
+Lots to do, but just learning for now!
